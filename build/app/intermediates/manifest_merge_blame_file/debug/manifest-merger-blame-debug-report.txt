@@ -1,0 +1,349 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cake_house_bakery"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+9        android:targetSdkVersion="31" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/home/nk/Desktop/cake_house_bakery/android/app/src/debug/AndroidManifest.xml:7:5-66
+15-->/home/nk/Desktop/cake_house_bakery/android/app/src/debug/AndroidManifest.xml:7:22-64
+16    <uses-permission android:name="android.permission.WAKE_LOCK" />
+16-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-68
+16-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-65
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+17-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+17-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+18-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+18-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-74
+19    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+19-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+19-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+20    <uses-permission android:name="android.permission.VIBRATE" />
+20-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-66
+20-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-63
+21    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+21-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-81
+21-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-78
+22    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+22-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-79
+22-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-76
+23    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+23-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+23-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+24    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+24-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-79
+24-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-76
+25    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+25-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:5-82
+25-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:22-79
+26
+27    <application
+28        android:name="android.app.Application"
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.6.0] /home/nk/.gradle/caches/transforms-3/b11c0e2c212c747cb4bcf29314469768/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@mipmap/launcher_icon"
+32        android:label="cake_house_bakery" >
+33        <activity
+34            android:name="com.example.cake_house_bakery.MainActivity"
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36            android:exported="true"
+37            android:hardwareAccelerated="true"
+38            android:launchMode="singleTop"
+39            android:theme="@style/LaunchTheme"
+40            android:windowSoftInputMode="adjustResize" >
+41
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+49                android:name="io.flutter.embedding.android.NormalTheme"
+50                android:resource="@style/NormalTheme" />
+51
+52            <intent-filter>
+53                <action android:name="android.intent.action.MAIN" />
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+56            </intent-filter>
+57        </activity>
+58        <!--
+59             Don't delete the meta-data below.
+60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+61        -->
+62        <meta-data
+63            android:name="flutterEmbedding"
+64            android:value="2" />
+65
+66        <service
+66-->[:firebase_database] /home/nk/Desktop/cake_house_bakery/build/firebase_database/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+67            android:name="com.google.firebase.components.ComponentDiscoveryService"
+67-->[:firebase_database] /home/nk/Desktop/cake_house_bakery/build/firebase_database/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+68            android:directBootAware="true"
+68-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:34:13-43
+69            android:exported="false" >
+69-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:31:13-37
+70            <meta-data
+70-->[:firebase_database] /home/nk/Desktop/cake_house_bakery/build/firebase_database/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+71                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
+71-->[:firebase_database] /home/nk/Desktop/cake_house_bakery/build/firebase_database/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-127
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[:firebase_database] /home/nk/Desktop/cake_house_bakery/build/firebase_database/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+73            <meta-data
+73-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+74                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+74-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+75                android:value="com.google.firebase.components.ComponentRegistrar" />
+75-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+76            <meta-data
+76-->[:firebase_core] /home/nk/Desktop/cake_house_bakery/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+77                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+77-->[:firebase_core] /home/nk/Desktop/cake_house_bakery/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[:firebase_core] /home/nk/Desktop/cake_house_bakery/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+79            <meta-data
+79-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+80                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+80-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+81                android:value="com.google.firebase.components.ComponentRegistrar" />
+81-->[com.google.firebase:firebase-iid:21.1.0] /home/nk/.gradle/caches/transforms-3/2c8fd9b068f47c2305add24377b6833a/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+82            <meta-data
+82-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:55:13-57:85
+83                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+83-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:56:17-119
+84                android:value="com.google.firebase.components.ComponentRegistrar" />
+84-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:57:17-82
+85            <meta-data
+85-->[com.google.firebase:firebase-database:20.1.0] /home/nk/.gradle/caches/transforms-3/69d53eedac0925ac58cc10249c7aad25/transformed/jetified-firebase-database-20.1.0/AndroidManifest.xml:31:13-33:85
+86                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+86-->[com.google.firebase:firebase-database:20.1.0] /home/nk/.gradle/caches/transforms-3/69d53eedac0925ac58cc10249c7aad25/transformed/jetified-firebase-database-20.1.0/AndroidManifest.xml:32:17-109
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[com.google.firebase:firebase-database:20.1.0] /home/nk/.gradle/caches/transforms-3/69d53eedac0925ac58cc10249c7aad25/transformed/jetified-firebase-database-20.1.0/AndroidManifest.xml:33:17-82
+88            <meta-data
+88-->[com.google.firebase:firebase-installations:17.1.0] /home/nk/.gradle/caches/transforms-3/aaac5498cd61c53403dde464793af6fe/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+89                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+89-->[com.google.firebase:firebase-installations:17.1.0] /home/nk/.gradle/caches/transforms-3/aaac5498cd61c53403dde464793af6fe/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[com.google.firebase:firebase-installations:17.1.0] /home/nk/.gradle/caches/transforms-3/aaac5498cd61c53403dde464793af6fe/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+91            <meta-data
+91-->[com.google.firebase:firebase-datatransport:18.1.7] /home/nk/.gradle/caches/transforms-3/6d3d61abd70335c3b3635bb7c10c06d9/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+92                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+92-->[com.google.firebase:firebase-datatransport:18.1.7] /home/nk/.gradle/caches/transforms-3/6d3d61abd70335c3b3635bb7c10c06d9/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[com.google.firebase:firebase-datatransport:18.1.7] /home/nk/.gradle/caches/transforms-3/6d3d61abd70335c3b3635bb7c10c06d9/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+94        </service>
+95        <service
+95-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+96            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+96-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+97            android:exported="false"
+97-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+98            android:permission="android.permission.BIND_JOB_SERVICE" />
+98-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+99        <service
+99-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+100            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+100-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+101            android:exported="false" >
+101-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+102            <intent-filter>
+102-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+103                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+103-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+103-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+104            </intent-filter>
+105        </service>
+106
+107        <receiver
+107-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+108            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+108-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+109            android:exported="true"
+109-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+110            android:permission="com.google.android.c2dm.permission.SEND" >
+110-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+111            <intent-filter>
+111-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+112                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+112-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+112-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+113            </intent-filter>
+114        </receiver>
+115
+116        <provider
+116-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+117            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+117-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+118            android:authorities="com.example.cake_house_bakery.flutterfirebasemessaginginitprovider"
+118-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
+119            android:exported="false"
+119-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+120            android:initOrder="99" />
+120-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+121
+122        <receiver
+122-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-18:40
+123            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
+123-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-91
+124            android:exported="false" />
+124-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+125        <receiver
+125-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-21:40
+126            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+126-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-97
+127            android:exported="false" />
+127-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-37
+128        <receiver
+128-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:9-31:20
+129            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+129-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-101
+130            android:exported="false" >
+130-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+131            <intent-filter>
+131-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-30:29
+132                <action android:name="android.intent.action.BOOT_COMPLETED" />
+132-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:17-79
+132-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:25-76
+133                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+133-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-84
+133-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-81
+134                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+134-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-82
+134-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:28:25-79
+135                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+135-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-82
+135-->[:flutter_local_notifications] /home/nk/Desktop/cake_house_bakery/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:29:25-79
+136            </intent-filter>
+137        </receiver>
+138
+139        <service
+139-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
+140            android:name="com.lyokone.location.FlutterLocationService"
+140-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
+141            android:enabled="true"
+141-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
+142            android:exported="false"
+142-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+143            android:foregroundServiceType="location" />
+143-->[:location] /home/nk/Desktop/cake_house_bakery/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
+144
+145        <uses-library
+145-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+146            android:name="androidx.window.extensions"
+146-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+147            android:required="false" />
+147-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+148        <uses-library
+148-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+149            android:name="androidx.window.sidecar"
+149-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+150            android:required="false" />
+150-->[androidx.window:window:1.0.0-beta04] /home/nk/.gradle/caches/transforms-3/e1f53c96aa78f7b42431169b7cd59214/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+151
+152        <receiver
+152-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:31:9-38:20
+153            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+153-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:32:13-78
+154            android:exported="true"
+154-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:33:13-36
+155            android:permission="com.google.android.c2dm.permission.SEND" >
+155-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:34:13-73
+156            <intent-filter>
+156-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+157                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+157-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+157-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+158            </intent-filter>
+159        </receiver>
+160        <!--
+161             FirebaseMessagingService performs security checks at runtime,
+162             but set to not exported to explicitly avoid allowing another app to call it.
+163        -->
+164        <service
+164-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:44:9-51:19
+165            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+165-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:45:13-82
+166            android:directBootAware="true"
+166-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:46:13-43
+167            android:exported="false" >
+167-->[com.google.firebase:firebase-messaging:23.1.0] /home/nk/.gradle/caches/transforms-3/569774cee7cd719185752e1c4ec8676a/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:47:13-37
+168            <intent-filter android:priority="-500" >
+168-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+169                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+169-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+169-->[:firebase_messaging] /home/nk/Desktop/cake_house_bakery/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+170            </intent-filter>
+171        </service>
+172
+173        <provider
+173-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
+174            android:name="com.google.firebase.provider.FirebaseInitProvider"
+174-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:26:13-77
+175            android:authorities="com.example.cake_house_bakery.firebaseinitprovider"
+175-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:27:13-72
+176            android:directBootAware="true"
+176-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:28:13-43
+177            android:exported="false"
+177-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:29:13-37
+178            android:initOrder="100" />
+178-->[com.google.firebase:firebase-common:20.2.0] /home/nk/.gradle/caches/transforms-3/ef8423601b72496d12bca9ac87595f67/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:30:13-36
+179
+180        <activity
+180-->[com.google.android.gms:play-services-base:18.0.1] /home/nk/.gradle/caches/transforms-3/1a2cb69c9228e95e429c828957f3a3b6/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+181            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+181-->[com.google.android.gms:play-services-base:18.0.1] /home/nk/.gradle/caches/transforms-3/1a2cb69c9228e95e429c828957f3a3b6/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+182            android:exported="false"
+182-->[com.google.android.gms:play-services-base:18.0.1] /home/nk/.gradle/caches/transforms-3/1a2cb69c9228e95e429c828957f3a3b6/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+183            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+183-->[com.google.android.gms:play-services-base:18.0.1] /home/nk/.gradle/caches/transforms-3/1a2cb69c9228e95e429c828957f3a3b6/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+184
+185        <meta-data
+185-->[com.google.android.gms:play-services-basement:18.1.0] /home/nk/.gradle/caches/transforms-3/83770efba2c122ac4d7bf3f6e3fc9396/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+186            android:name="com.google.android.gms.version"
+186-->[com.google.android.gms:play-services-basement:18.1.0] /home/nk/.gradle/caches/transforms-3/83770efba2c122ac4d7bf3f6e3fc9396/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+187            android:value="@integer/google_play_services_version" />
+187-->[com.google.android.gms:play-services-basement:18.1.0] /home/nk/.gradle/caches/transforms-3/83770efba2c122ac4d7bf3f6e3fc9396/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+188
+189        <service
+189-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+190            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+190-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+191            android:exported="false" >
+191-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+192            <meta-data
+192-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+193                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+193-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+194                android:value="cct" />
+194-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/nk/.gradle/caches/transforms-3/61fd35e3738ef55dd6374ee6a68cae63/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+195        </service>
+196        <service
+196-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+197            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+197-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+198            android:exported="false"
+198-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+199            android:permission="android.permission.BIND_JOB_SERVICE" >
+199-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+200        </service>
+201
+202        <receiver
+202-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+203            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+203-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+204            android:exported="false" />
+204-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/nk/.gradle/caches/transforms-3/978a2af69b997e29759906459292b13f/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+205    </application>
+206
+207</manifest>
