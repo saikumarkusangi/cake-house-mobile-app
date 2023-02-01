@@ -20,7 +20,7 @@ class CategoryApp extends StatefulWidget {
 
 class _CategoryAppState extends State<CategoryApp>
     with SingleTickerProviderStateMixin {
-      Db? db = Db();
+      // Db? db = Db();
      late TabController _controller ;
     
    int _selectedIndex = 0;
@@ -415,9 +415,20 @@ class _CategoryAppState extends State<CategoryApp>
                                 textColor: Colors.white,
                                 color: Colors.deepOrange,
                                 onPressed: (){
-          
-                                db!.insert(
-                                  Cart(
+ 
+                               
+                           if(
+                            cartProvider.cartItemsList.any((element) => element.name == productProvider.products[index].name)
+                           ){
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Already added to Bag'),
+                         ) );
+                                }else{
+                               try {
+                                 cartProvider.addCounter();
+                                 cartProvider.addtotalPrice(productProvider.products[index].price!);
+                                 cartProvider.cartItemsList.add(
+                                       Cart(
                                     initialPrice: productProvider.products[index].price,
                                     image: productProvider.products[index].image,
                                      name: productProvider.products[index].name, 
@@ -426,18 +437,38 @@ class _CategoryAppState extends State<CategoryApp>
                                      quantity: 1, 
                                      unitTag: productProvider.products[index].name
                                      )
-                                ).then((value) {
-                                      cartProvider.addtotalPrice(productProvider.products[index].price!);
-                                    
-                                      cartProvider.addCounter();
-                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                 );
+                                   
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text('Added to Bag'),
                          ) );
-                                }).onError((error, stackTrace) {
-                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text('Already added to Bag'),
-                         ) );
-                                });
+                               } catch (e) {
+                                 print(e); 
+                               }}
+                               
+                        //         db!.insert(
+                        //           Cart(
+                        //             initialPrice: productProvider.products[index].price,
+                        //             image: productProvider.products[index].image,
+                        //              name: productProvider.products[index].name, 
+                        //              price: productProvider.products[index].price, 
+                        //              id: index, 
+                        //              quantity: 1, 
+                        //              unitTag: productProvider.products[index].name
+                        //              )
+                        //         ).then((value) {
+                        //               cartProvider.addtotalPrice(productProvider.products[index].price!);
+                                    
+                        //               cartProvider.addCounter();
+                        //               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        //       content: Text('Added to Bag'),
+                        //  ) );
+                        //         }).onError((error, stackTrace) {
+                                  
+                        //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        //       content: Text(error.toString()),
+                        //  ) );
+                        //         });
                                
                              },
                              

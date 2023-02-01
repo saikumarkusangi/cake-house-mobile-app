@@ -47,21 +47,23 @@ class _CartPageState extends State<CartPage> {
               color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Container(
+     
+
+    body:
+      Container(
         padding: EdgeInsets.only(top: 10),
-        child: FutureBuilder(
-          future: cartProvider.getData(),
-          builder: ((context, AsyncSnapshot<List<Cart>> snapshot) {
+        child:Consumer<CartController>(
+         builder: ((context, data, child) {
             
-            if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            if (data.cartItemsList.length > 0 && data.cartItemsList!.isNotEmpty) {
               return Column(
                 children: [
                   Expanded(
                       child: ListView.builder(
-                    itemCount: snapshot.data!.length,
+                    itemCount: data.cartItemsList.length,
                     itemBuilder: ((context, index) {
-                      orderList[snapshot.data![index].name] =
-                          snapshot.data![index].quantity!;
+                      orderList[data.cartItemsList[index].name] =
+                          data.cartItemsList[index].quantity!;
                       return Card(
                           child: Padding(
                               padding: EdgeInsets.all(10),
@@ -87,7 +89,7 @@ class _CartPageState extends State<CartPage> {
                                                 ),
                                               ),
                                               imageUrl:
-                                                  snapshot.data![index].image!,
+                                                data.cartItemsList[index].image!,
                                               fit: BoxFit.cover,
                                               errorWidget: (context, url,
                                                       error) =>
@@ -108,7 +110,7 @@ class _CartPageState extends State<CartPage> {
                                           SizedBox(
                                             width: MediaQuery.of(context).size.width/1.8,
                                             child: Text(
-                                              snapshot.data![index].name!,
+                                             data.cartItemsList[index].name!,
                                               style: TextStyle(
                                                   fontSize: 22,
                                                   fontWeight: FontWeight.w600),
@@ -121,7 +123,7 @@ class _CartPageState extends State<CartPage> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                '₹ ${snapshot.data![index].price!.toString()}',
+                                                '₹ ${ (data.cartItemsList[index].price! * data.cartItemsList[index].quantity!).toString()}',
                                                 style: TextStyle(
                                                     color: Colors.black54,
                                                     fontSize: 22,
@@ -142,57 +144,45 @@ class _CartPageState extends State<CartPage> {
                                                   children: [
                                                     IconButton(
                                                       onPressed: () {
+ 
                                                         
-                                                        int quantity = snapshot
-                                                            .data![index]
-                                                            .quantity!;
-                                                        int price = snapshot
-                                                            .data![index]
-                                                            .initialPrice!;
-                                                        quantity--;
+                                                        
+                                                        int quantity = data.cartItemsList[index].quantity!;
+                                                        int price = data.cartItemsList[index].initialPrice!;
+                                                       
+                                                        
                                                         int? newPrice =
                                                             price * quantity;
                                                         if (quantity > 0) {
-                                                          db
-                                                              .updateQuantity(Cart(
-                                                                  initialPrice: snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .initialPrice,
-                                                                  image: snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .image!,
-                                                                  name: snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .name,
-                                                                  price:
-                                                                      newPrice,
-                                                                  id: snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .id,
-                                                                  quantity:
-                                                                      quantity,
-                                                                  unitTag: snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .unitTag!))
-                                                              .then((value) {
-                                                            newPrice = 0;
-                                                            quantity = 0;
+                                                            quantity--;
+                                                             setState(() {
+                                                          cartProvider.cartItemsList[index].quantity = quantity;
+                                                        });
                                                             cartProvider
-                                                                .removetotalPrice(
-                                                                    snapshot
-                                                                        .data![
-                                                                            index]
-                                                                        .initialPrice!);
-                                                          }).catchError((error,
-                                                                  stackTrace) {
-                                                            print(error
-                                                                .toString());
-                                                          });
+                                                              .removetotalPrice(
+                                                                   data.cartItemsList[index].initialPrice!);
+                                                          // db
+                                                          //     .updateQuantity(Cart(
+                                                          //         initialPrice: data.cartItemsList[index].initialPrice,
+                                                          //         image: data.cartItemsList[index].image!,
+                                                          //         name: data.cartItemsList[index].name,
+                                                          //         price:
+                                                          //             newPrice,
+                                                          //         id: data.cartItemsList[index].id,
+                                                          //         quantity:
+                                                          //             quantity,
+                                                          //         unitTag: data.cartItemsList[index].unitTag))
+                                                          //     .then((value) {
+                                                          //   newPrice = 0;
+                                                          //   quantity = 0;
+                                                          //   cartProvider
+                                                          //       .removetotalPrice(
+                                                          //           data.cartItemsList[index].initialPrice!);
+                                                          // }).catchError((error,
+                                                          //         stackTrace) {
+                                                          //   print(error
+                                                          //       .toString());
+                                                          // });
                                                         }
                                                       },
                                                       icon: Icon(
@@ -202,8 +192,7 @@ class _CartPageState extends State<CartPage> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      snapshot
-                                                          .data![index].quantity
+                                                     data.cartItemsList[index].quantity
                                                           .toString(),
                                                       style: TextStyle(
                                                           color:
@@ -212,54 +201,55 @@ class _CartPageState extends State<CartPage> {
                                                     ),
                                                     IconButton(
                                                       onPressed: () {
-                                                        int quantity = snapshot
-                                                            .data![index]
-                                                            .quantity!;
-                                                        int price = snapshot
-                                                            .data![index]
-                                                            .initialPrice!;
+                                                        int quantity = data.cartItemsList[index].quantity!;
+                                                        int price = data.cartItemsList[index].initialPrice!;
                                                         quantity++;
+                                                        setState(() {
+                                                          cartProvider.cartItemsList[index].quantity = quantity;
+                                                        });
                                                         int? newPrice =
                                                             price * quantity;
-                                                        db
-                                                            .updateQuantity(Cart(
-                                                                initialPrice: snapshot
-                                                                    .data![
-                                                                        index]
-                                                                    .initialPrice,
-                                                                image: snapshot
-                                                                    .data![
-                                                                        index]
-                                                                    .image!,
-                                                                name: snapshot
-                                                                    .data![
-                                                                        index]
-                                                                    .name,
-                                                                price: newPrice,
-                                                                id: snapshot
-                                                                    .data![
-                                                                        index]
-                                                                    .id,
-                                                                quantity:
-                                                                    quantity,
-                                                                unitTag: snapshot
-                                                                    .data![
-                                                                        index]
-                                                                    .unitTag!))
-                                                            .then((value) {
-                                                          newPrice = 0;
-                                                          quantity = 0;
+
+                                                            
                                                           cartProvider
                                                               .addtotalPrice(
-                                                                  snapshot
-                                                                      .data![
+                                                                  data
+                                                                      .cartItemsList[
                                                                           index]
                                                                       .initialPrice!);
-                                                        }).catchError((error,
-                                                                stackTrace) {
-                                                          print(
-                                                              error.toString());
-                                                        });
+                                                        // db
+                                                        //     .updateQuantity(Cart(
+                                                        //         initialPrice: data.cartItemsList[index].initialPrice,
+                                                        //         image: data.cartItemsList[index].image!,
+                                                        //         name: snapshot
+                                                        //             .data![
+                                                        //                 index]
+                                                        //             .name,
+                                                        //         price: newPrice,
+                                                        //         id: snapshot
+                                                        //             .data![
+                                                        //                 index]
+                                                        //             .id,
+                                                        //         quantity:
+                                                        //             quantity,
+                                                        //         unitTag: snapshot
+                                                        //             .data![
+                                                        //                 index]
+                                                        //             .unitTag!))
+                                                         //   .then((value) {
+                                                        //   newPrice = 0;
+                                                        //   quantity = 0;
+                                                        //   cartProvider
+                                                        //       .addtotalPrice(
+                                                        //           snapshot
+                                                        //               .data![
+                                                        //                   index]
+                                                        //               .initialPrice!);
+                                                        // }).catchError((error,
+                                                        //         stackTrace) {
+                                                        //   print(
+                                                        //       error.toString());
+                                                        // });
                                                       },
                                                       icon: Icon(
                                                         Icons.add,
@@ -276,12 +266,21 @@ class _CartPageState extends State<CartPage> {
                                               textColor: Colors.white,
                                               color: Colors.deepOrange,
                                               onPressed: () {
-                                                cartProvider.removetotalPrice(
-                                                    snapshot
-                                                        .data![index].price!);
-                                                db.delete(
-                                                    snapshot.data![index].id!);
-                                                cartProvider.removeCounter();
+                                                if (data.cartItemsList[index].quantity! > 0) {
+                                                   cartProvider.removetotalPrice(
+                                                    data.cartItemsList[index].price! * data.cartItemsList[index].quantity! );
+                                                // db.delete(
+                                                //     data.cartItemsList[index].id!);
+                                               
+                                                
+                                                }
+                                                 if (data.cartItemsList.isEmpty) {
+                                                  cartProvider.totalprice = 0;
+                                                  cartProvider.counter =0;
+                                                 }
+                                              cartProvider.cartItemsList.removeWhere(
+                                                  (item) => item.name == data.cartItemsList[index].name!);
+                                                 cartProvider.removeCounter();
                                               },
                                               minWidth: 50,
                                               height: 40,
@@ -313,7 +312,7 @@ class _CartPageState extends State<CartPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'Total Price = ₹ ${cartProvider.totalPrice.toString()}',
+                              'Total Price = ₹ ${cartProvider.totalprice.toString()}',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -373,6 +372,8 @@ class _CartPageState extends State<CartPage> {
           }),
         ),
       ),
+  
+  
     );
   }
 }

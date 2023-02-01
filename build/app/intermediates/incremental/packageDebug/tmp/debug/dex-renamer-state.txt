@@ -1,4 +1,4 @@
-#Wed Jan 18 12:49:11 IST 2023
+#Wed Feb 01 10:04:32 IST 2023
 base.0=/home/nk/Desktop/cake_house_bakery/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

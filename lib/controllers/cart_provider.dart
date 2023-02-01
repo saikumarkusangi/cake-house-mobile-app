@@ -4,14 +4,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/cart_model.dart';
 class CartController with ChangeNotifier{
+  
+  List<Cart> cartItemsList = [];
+  
+  // addToCart(Cart cart){
+  //   cartItemsList.add(cart);
+  // }
 
-  int _counter = 0;
+  int counter = 0;
 
-  int get counter => _counter;
+ 
 
-  int _totalprice = 0;
+  int totalprice = 0;
 
-  int get totalPrice => _totalprice;
+
    
     Db db = Db();
 
@@ -28,52 +34,52 @@ class CartController with ChangeNotifier{
 
   void _setPrefItems()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt('cart_item', _counter);
-    prefs.setInt('total_price', _totalprice);
+    prefs.setInt('cart_item', counter);
+    prefs.setInt('total_price', totalprice);
     notifyListeners();
   }
 
 
   void _getPrefItems()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _counter = prefs.getInt('cart_item') ?? 0;
-    _totalprice = prefs.getInt('total_price') ?? 0;
+    counter = prefs.getInt('cart_item') ?? 0;
+    totalprice = prefs.getInt('total_price') ?? 0;
     notifyListeners();
   }
 
   void addCounter(){
-    _counter++;
+    counter++;
     _setPrefItems();
     notifyListeners();
   }
   
   void removeCounter(){
-    _counter--;
+    counter--;
     _setPrefItems();
     notifyListeners();
   }
 
   int getCounter(){
    _getPrefItems();
-   return _counter;
+   return counter;
   }
 
 
   void addtotalPrice(int price){
-    _totalprice = _totalprice + price;
+    totalprice = totalprice + price;
     _setPrefItems();
     notifyListeners();
   }
   
   void removetotalPrice(int price){
-    _totalprice = _totalprice - price;
+    totalprice = totalprice - price;
     _setPrefItems();
     notifyListeners();
   }
 
   int gettotalPrice(){
    _getPrefItems();
-   return _totalprice;
+   return totalprice;
   }
 
 

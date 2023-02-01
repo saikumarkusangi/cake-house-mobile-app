@@ -111,27 +111,53 @@ class _DetailsPageState extends State<DetailsPage> {
             Center(
                 child: GestureDetector(
               onTap: (() {
-                db!
-                    .insert(Cart(
-                        initialPrice: widget.initialPrice,
-                        image: widget.image,
-                        name: widget.name,
-                        price: widget.price,
-                        id: widget.id,
-                        quantity: 1,
-                        unitTag: widget.unitTag))
-                    .then((value) {
-                  cartProvider.addtotalPrice(widget.price);
+                 print(cartProvider.cartItemsList);
+                           if( cartProvider.cartItemsList.any((element) => element.name == widget.name)){
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Already added to Bag'),
+                         ) );
+                                }else{
+                               try {
+                                 cartProvider.addCounter();
+                                 cartProvider.addtotalPrice(widget.price);
+                                   cartProvider.cartItemsList.add(
+                                   Cart(
+                                    initialPrice: widget.initialPrice,
+                                    image:widget.image,
+                                     name: widget.name, 
+                                     price: widget.price, 
+                                     id: widget.id, 
+                                     quantity: 1, 
+                                     unitTag: widget.name
+                                     )
+                                );
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Added to Bag'),
+                         ) );
+                               } catch (e) {
+                                 print(e); 
+                               }}
+                // db!
+                //     .insert(Cart(
+                //         initialPrice: widget.initialPrice,
+                //         image: widget.image,
+                //         name: widget.name,
+                //         price: widget.price,
+                //         id: widget.id,
+                //         quantity: 1,
+                //         unitTag: widget.unitTag))
+                //     .then((value) {
+                //   cartProvider.addtotalPrice(widget.price);
 
-                  cartProvider.addCounter();
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Added to Bag'),
-                  ));
-                }).onError((error, stackTrace) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Already added to Bag'),
-                  ));
-                });
+                //   cartProvider.addCounter();
+                //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                //     content: Text('Added to Bag'),
+                //   ));
+                // }).onError((error, stackTrace) {
+                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                //     content: Text('Already added to Bag'),
+                //   ));
+                // });
               }),
               child: Container(
                   width: MediaQuery.of(context).size.width - 50.0,

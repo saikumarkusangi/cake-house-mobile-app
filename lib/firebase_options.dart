@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,11 +43,23 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAmEmLsX30GRHNjfbY7yHNFvliU34EJnK8',
+    appId: '1:928714007083:web:327020a4f1fdf1d5ee006e',
+    messagingSenderId: '928714007083',
+    projectId: 'cake-house-e56f0',
+    authDomain: 'cake-house-e56f0.firebaseapp.com',
+    databaseURL: 'https://cake-house-e56f0-default-rtdb.firebaseio.com',
+    storageBucket: 'cake-house-e56f0.appspot.com',
+    measurementId: 'G-B66YTECYGF',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB7RB_esiu8vCf7_Cw4QG4TKHZUgvEbAOA',
     appId: '1:928714007083:android:5f8cb8ebc54b9549ee006e',
     messagingSenderId: '928714007083',
     projectId: 'cake-house-e56f0',
+    databaseURL: 'https://cake-house-e56f0-default-rtdb.firebaseio.com',
     storageBucket: 'cake-house-e56f0.appspot.com',
   );
 
@@ -62,6 +68,18 @@ class DefaultFirebaseOptions {
     appId: '1:928714007083:ios:a1a1aec9f7fa13c0ee006e',
     messagingSenderId: '928714007083',
     projectId: 'cake-house-e56f0',
+    databaseURL: 'https://cake-house-e56f0-default-rtdb.firebaseio.com',
+    storageBucket: 'cake-house-e56f0.appspot.com',
+    iosClientId: '928714007083-ma3gsnd0rm4u7ost68qt68t0sp6hncd9.apps.googleusercontent.com',
+    iosBundleId: 'com.example.cakeHouseBakery',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyB7uxr2EY657QAQhvm29RO-uo1GF0BbP-Y',
+    appId: '1:928714007083:ios:a1a1aec9f7fa13c0ee006e',
+    messagingSenderId: '928714007083',
+    projectId: 'cake-house-e56f0',
+    databaseURL: 'https://cake-house-e56f0-default-rtdb.firebaseio.com',
     storageBucket: 'cake-house-e56f0.appspot.com',
     iosClientId: '928714007083-ma3gsnd0rm4u7ost68qt68t0sp6hncd9.apps.googleusercontent.com',
     iosBundleId: 'com.example.cakeHouseBakery',

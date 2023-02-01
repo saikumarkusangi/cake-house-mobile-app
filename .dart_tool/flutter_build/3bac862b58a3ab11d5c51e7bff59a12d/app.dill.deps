@@ -6,6 +6,7 @@ file:///home/nk/Desktop/cake_house_bakery/lib/consts/constants.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/controllers/cart_provider.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/controllers/product_controller.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/db.dart
+file:///home/nk/Desktop/cake_house_bakery/lib/firebase_options.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/main.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/models/cart_model.dart
 file:///home/nk/Desktop/cake_house_bakery/lib/models/product_model.dart

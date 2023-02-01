@@ -5,7 +5,7 @@ class Cart {
    final String? image;
    final int? price;
    final String? unitTag;
-   final int? quantity;
+    int? quantity;
    final int? initialPrice;
 
   Cart({

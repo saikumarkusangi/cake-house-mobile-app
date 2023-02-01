@@ -1,4 +1,5 @@
 
+
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:cake_house_bakery/catergory/appbar.dart';
 import 'package:cake_house_bakery/controllers/cart_provider.dart';
@@ -10,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import 'firebase_options.dart';
+
 void main()async {
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setPreferredOrientations([
@@ -18,7 +21,9 @@ void main()async {
       ]);
 
 
-  Firebase.initializeApp();
+  await Firebase.initializeApp(
+    // options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
 }
 
@@ -31,13 +36,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    initialization();
-    Future.delayed(const Duration(seconds: 3));
-      FlutterNativeSplash.remove();
-  }
+ 
   @override
   Widget build(BuildContext context) {
 
@@ -51,6 +50,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Cake House',
+
         theme: ThemeData(
         
           primarySwatch: Colors.blue,

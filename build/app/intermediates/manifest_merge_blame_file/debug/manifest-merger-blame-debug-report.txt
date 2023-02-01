@@ -52,7 +52,7 @@
 29-->[androidx.core:core:1.6.0] /home/nk/.gradle/caches/transforms-3/b11c0e2c212c747cb4bcf29314469768/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 30        android:debuggable="true"
 31        android:icon="@mipmap/launcher_icon"
-32        android:label="cake_house_bakery" >
+32        android:label="cake house bakery" >
 33        <activity
 34            android:name="com.example.cake_house_bakery.MainActivity"
 35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
