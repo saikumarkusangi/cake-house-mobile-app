@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:cake_house_bakery/models/product_model.dart';
 import "package:dio/dio.dart";
-
 import '../consts/constants.dart';
 
 
@@ -17,6 +16,7 @@ static Future<List<ProductModel>> fetchProduct() async{
   {
     final List<dynamic> data =  response.data;
     return data.map((item) => ProductModel.fromJson(item)).toList();
+    print(data);
     
   }else{
     throw Exception('Something went wrong!!!');

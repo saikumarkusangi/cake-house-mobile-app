@@ -4,6 +4,7 @@ import 'package:cake_house_bakery/views/final_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:cake_house_bakery/views/cart.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:location/location.dart';
@@ -14,10 +15,14 @@ import '../db.dart';
 import '../widgets/text_field_form.dart';
 
 class OrderPage extends StatefulWidget {
-   OrderPage({super.key,required this.order,required this.token1,required this.token2});
-  String order ;
+   OrderPage({super.key,required this.items,required this.total,
+   //required this.order,
+  required this.token1,required this.token2});
+ //String order ;
   String token1;
   String token2;
+  List items;
+  String total;
   @override
   State<OrderPage> createState() => _OrderPageState();
 }
@@ -38,7 +43,7 @@ TextEditingController   _timeController    = TextEditingController();
  
   double lat = 0;
  double lng = 0;
- 
+ String deviceTokenTosendNotification = '';
   void getLocation() async{
     var location = await currentLocation.getLocation();
     setState(() {
@@ -58,6 +63,18 @@ TextEditingController   _timeController    = TextEditingController();
     _addressController.dispose();
     _otherController.dispose();
   }
+//    Future<void> getDeviceToken() async{
+//     final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+//     _fcm.requestPermission();
+//     final token = await _fcm.getToken().then((String? token) {
+// setState(() {
+//        deviceTokenTosendNotification = token!;
+//     });
+//     });
+    
+   
+    
+//   }
  Future<dynamic> post()async{
         var url = Uri.parse('https://fcm.googleapis.com/fcm/send');
        var client = http.Client();
@@ -98,9 +115,11 @@ bool _isloading = false;
 @override
 void initState() { 
   super.initState();
+  //  getDeviceToken();
    dbRef = FirebaseDatabase.instance.ref().child('order');
   setState(() {
       getLocation();
+     
     });
 }
   Future<void> deleteDatabase(String path) =>
@@ -248,16 +267,19 @@ body: SingleChildScrollView(
                            }else{
                               
                               if(_form.currentState!.validate()){
-                        Map<String,String> orders = {
+                        Map<String,dynamic> orders = {
                         'name':_nameController.text,
                         'mobile':_mobilenumberController.text,
                         'address':_addressController.text,
                         'message':_messageController.text,
                         'time': _timeController.text,
                         'other':_otherController.text,
-                        'orders':widget.order,
+                        'items':widget.items,
                         'lat':lat.toString(),
-                        'lng':lng.toString()
+                        'lng':lng.toString(),   
+                        'total':widget.total,
+                        // 'token':deviceTokenTosendNotification
+
                         };
                         setState(() {
                           _isloading = true;
@@ -268,7 +290,8 @@ body: SingleChildScrollView(
                           setState(() {
                           _isloading = false;
                         });
-                        post();
+                       post();
+                         Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => FinalPage())));
                          showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!
@@ -287,7 +310,7 @@ body: SingleChildScrollView(
 
                 child: Image.network('https://cdn.dribbble.com/users/3955123/screenshots/7107965/image.gif',fit: BoxFit.cover,)),
                 SizedBox(height: 5,),
-                  Text('Set timer for 10 mins your order is arriving.',style: TextStyle(fontSize: 18,color: Colors.black),),
+                  Text('Your order will be delivered soon..',style: TextStyle(fontSize: 18,color: Colors.black),),
             ],
           ),
         ),

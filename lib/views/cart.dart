@@ -2,12 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cake_house_bakery/controllers/cart_provider.dart';
 import 'package:cake_house_bakery/controllers/product_controller.dart';
 import 'package:cake_house_bakery/db.dart';
+
 import 'package:cake_house_bakery/views/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import '../models/cart_model.dart';
+
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -17,9 +19,9 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  
+     List items = [];
   Db db = Db();
-  Map orderList = {};
+ // Map orderList = {};
   int _total = 0;
   getTotal() async {
      SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -62,8 +64,8 @@ class _CartPageState extends State<CartPage> {
                       child: ListView.builder(
                     itemCount: data.cartItemsList.length,
                     itemBuilder: ((context, index) {
-                      orderList[data.cartItemsList[index].name] =
-                          data.cartItemsList[index].quantity!;
+                      // orderList[data.cartItemsList[index].name] =
+                      //     data.cartItemsList[index].quantity!;
                       return Card(
                           child: Padding(
                               padding: EdgeInsets.all(10),
@@ -321,12 +323,32 @@ class _CartPageState extends State<CartPage> {
                             MaterialButton(
                               color: Colors.white,
                               onPressed: () {
+                                  for(var i=0; i < cartProvider.cartItemsList.length ;i++){
+                                        items.add({
+                                           cartProvider.cartItemsList[i].name,
+                                          cartProvider.cartItemsList[i].price,
+                                          cartProvider.cartItemsList[i].quantity,
+                                          cartProvider.cartItemsList[i].image
+                                          });
+                                       
+                                        
+                                      }
+                                
+                                  // Navigator.push(context, MaterialPageRoute(builder: ((context) => UpiPage())));
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: ((context) {
+                                      
+                                   
+                                    
+                                      
                                   return OrderPage(
+                                   
+                                    items: items.toList(),
+                                    total:cartProvider.totalprice.toString(),
                                     token1:productProvider.products[0].registration_ids!,
                                     token2:productProvider.products[1].registration_ids!,
-                                    order: orderList.toString());
+                               //     order: orderList.toString()
+                                    );
                                 })));
                               },
                               child: Text(

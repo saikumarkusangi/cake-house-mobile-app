@@ -4,6 +4,7 @@ import 'package:cake_house_bakery/db.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../consts/constants.dart';
 import '../controllers/cart_provider.dart';
 import '../models/cart_model.dart';
 
@@ -120,6 +121,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                try {
                                  cartProvider.addCounter();
                                  cartProvider.addtotalPrice(widget.price);
+                                  images_url.add(widget.image);
                                    cartProvider.cartItemsList.add(
                                    Cart(
                                     initialPrice: widget.initialPrice,
